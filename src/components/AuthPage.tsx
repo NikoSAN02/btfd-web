@@ -1,7 +1,7 @@
 "use client"
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React from 'react';
 import Image from 'next/image';
+
 interface GameSelectionUIProps {
   isLoading: boolean;
   selectedGame: string;
@@ -14,24 +14,30 @@ const GameSelectionUI: React.FC<GameSelectionUIProps> = ({ isLoading, selectedGa
       {/* Header with logo */}
       <div className="p-4 bg-black flex items-center justify-center">
         <div className="flex items-center">
-          <Image src="/images/BtfdLogo.png" alt="BTFD.WTF" className="h-10 w-10" />
+          <Image src="/images/BtfdLogo.png" alt="BTFD.WTF" width={40} height={40} />
         </div>
       </div>
       
       {/* Main content area */}
-      <div className="flex-grow relative flex flex-col items-center">
+      <div className="flex-grow relative flex flex-col items-center justify-between py-4">
         {/* Background image */}
-        <div 
-          className="absolute inset-0 w-3/4 h-full bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/Bg_Image.png')" }}
-        />
+        <div className="absolute inset-0 w-full h-full">
+          <Image 
+            src="/images/Bg_Image.png"
+            alt="Background"
+            layout="fill"
+            objectFit="cover"
+            priority
+          />
+        </div>
         
         {/* Game title */}
-        <div className="relative z-10 mt-8 mb-4 w-full flex justify-center">
+        <div className="relative z-10 mt-4 mb-4 w-full flex justify-center">
           <Image 
             src="/images/Game_Title_text.png" 
             alt="BTFD SURVIVAL" 
-            className="w-4/5 max-w-md"
+            width={300}
+            height={60}
           />
         </div>
         
@@ -46,20 +52,26 @@ const GameSelectionUI: React.FC<GameSelectionUIProps> = ({ isLoading, selectedGa
               <Image 
                 src="/images/BtfdSurvival_Game_Image2.png" 
                 alt="Game Character" 
-                className="w-64 h-64 object-cover"
+                width={220}
+                height={220}
               />
             </div>
           </div>
         </div>
         
         {/* Play button */}
-        <div className="relative z-10 w-full flex justify-center">
+        <div className="relative z-10 w-full flex justify-center mb-8">
           <button
             onClick={() => onGameSelect("unity3")}
             disabled={isLoading}
-            className="w-64 transform hover:scale-105 transition-transform"
+            className="transform hover:scale-105 transition-transform"
           >
-            <Image src="/images/Play_Btn.png" alt="PLAY" className="w-full" />
+            <Image 
+              src="/images/Play_Btn.png" 
+              alt="PLAY" 
+              width={220}
+              height={60}
+            />
           </button>
         </div>
       </div>
