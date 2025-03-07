@@ -1,7 +1,6 @@
 "use client"
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 interface GameSelectionUIProps {
   isLoading: boolean;
@@ -15,7 +14,7 @@ const GameSelectionUI: React.FC<GameSelectionUIProps> = ({ isLoading, selectedGa
       <div className="flex flex-col h-screen">
         {/* Header */}
         <div className="p-4 flex justify-center items-center">
-          <Image src="/images/logo-btfd.wtf.png" alt="BTFD.WTF" className="h-8" />
+          <img src="/images/BtfdLogo.png" alt="BTFD.WTF" className="h-8" />
         </div>
         
         {/* Background with cats and crypto coins */}
@@ -23,15 +22,13 @@ const GameSelectionUI: React.FC<GameSelectionUIProps> = ({ isLoading, selectedGa
           {/* Background image with cats and coins */}
           <div 
             className="absolute inset-0 w-full h-full bg-cover bg-center z-0" 
-            style={{ backgroundImage: "url('/images/cat-crypto-bg.jpg')" }}
+            style={{ backgroundImage: "url('/images/Bg_Image.png')" }}
           />
           
           {/* Purple title overlay */}
           <div className="relative z-10 text-center pt-8">
             <div className="inline-block">
-              <h1 className="text-5xl font-bold text-purple-500 tracking-wider" style={{ textShadow: "3px 3px 0px white" }}>
-                BTFD SURVIVAL
-              </h1>
+              <img src="/images/Game_Title_text.png" alt="BTFD SURVIVAL" className="h-16" />
             </div>
           </div>
           
@@ -46,8 +43,8 @@ const GameSelectionUI: React.FC<GameSelectionUIProps> = ({ isLoading, selectedGa
               }}></div>
               
               <div className="rounded-2xl overflow-hidden border-4 border-white">
-                <Image 
-                  src="/images/game-character.jpg" 
+                <img 
+                  src="/images/BtfdSurvival_Game_Image2.png" 
                   alt="Game Character" 
                   className="w-64 h-64 object-cover"
                 />
@@ -58,9 +55,9 @@ const GameSelectionUI: React.FC<GameSelectionUIProps> = ({ isLoading, selectedGa
             <button
               onClick={() => onGameSelect("unity3")}
               disabled={isLoading}
-              className="bg-purple-900 text-white text-2xl font-bold w-64 h-16 rounded-lg tracking-widest hover:bg-purple-800 transition-colors"
+              className="mt-4"
             >
-              P L A Y
+              <img src="/images/Play_Btn.png" alt="PLAY" className="w-64" />
             </button>
           </div>
         </div>
