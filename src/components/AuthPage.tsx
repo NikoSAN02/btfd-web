@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface GameSelectionUIProps {
   isLoading: boolean;
@@ -10,47 +11,61 @@ interface GameSelectionUIProps {
 
 const GameSelectionUI: React.FC<GameSelectionUIProps> = ({ isLoading, selectedGame, onGameSelect }) => {
   return (
-    <>
-      <div className="min-h-screen text-white bg-black">
-        <div className="mx-auto max-w-sm">
-          <div className="relative min-h-screen px-6 py-4 pb-24">
-                 
-            {/* Games Section */}
-            <div className="mt-12">
-              <div className="flex items-center justify-between">
-                <div className="text-2xl font-bold">GAMES</div>
-                <div className="flex space-x-1">
-                  {[...Array(7)].map((_, i) => (
-                    <div key={i} className="w-1 h-1 bg-white rounded-full"></div>
-                  ))}
-                </div>
+    <div className="min-h-screen text-white bg-black">
+      <div className="flex flex-col h-screen">
+        {/* Header */}
+        <div className="p-4 flex justify-center items-center">
+          <Image src="/images/logo-btfd.wtf.png" alt="BTFD.WTF" className="h-8" />
+        </div>
+        
+        {/* Background with cats and crypto coins */}
+        <div className="relative flex-grow flex flex-col">
+          {/* Background image with cats and coins */}
+          <div 
+            className="absolute inset-0 w-full h-full bg-cover bg-center z-0" 
+            style={{ backgroundImage: "url('/images/cat-crypto-bg.jpg')" }}
+          />
+          
+          {/* Purple title overlay */}
+          <div className="relative z-10 text-center pt-8">
+            <div className="inline-block">
+              <h1 className="text-5xl font-bold text-purple-500 tracking-wider" style={{ textShadow: "3px 3px 0px white" }}>
+                BTFD SURVIVAL
+              </h1>
+            </div>
+          </div>
+          
+          {/* Game character and play button */}
+          <div className="relative z-10 flex-grow flex flex-col items-center justify-center">
+            {/* Character box with lightning borders */}
+            <div className="relative mb-6">
+              <div className="absolute inset-0 border-4 rounded-2xl" style={{ 
+                borderImage: "linear-gradient(to bottom right, #ff00ff, #00ffff) 1",
+                transform: "scale(1.1)",
+                zIndex: -1
+              }}></div>
+              
+              <div className="rounded-2xl overflow-hidden border-4 border-white">
+                <Image 
+                  src="/images/game-character.jpg" 
+                  alt="Game Character" 
+                  className="w-64 h-64 object-cover"
+                />
               </div>
             </div>
             
-            {/* Game List */}
-            <div className="mt-6">
-              <div className="flex items-center justify-between p-4">
-                <div className="flex items-center gap-4">
-                  <div className="h-[60px] w-[60px] rounded-lg bg-cover border-2 border-[#E6FF00] flex items-center justify-center"
-                       style={{backgroundImage: "url('/gameimg/logo-btfd.png')"}}> 
-                  </div>
-                  <span className="font-semibold text-white text-md">BTFD Survival</span>
-                </div>
-                <button
-                  onClick={() => onGameSelect("unity3")}
-                  disabled={isLoading}
-                  className="px-4 py-1 rounded-[11px] border-2 border-[#E6FF00] bg-black text-[#E6FF00] text-md font-bold hover:bg-[#E6FF00] hover:text-black transition-colors"
-                >
-                  PLAY
-                </button>
-              </div>
-            </div>
+            {/* Play button */}
+            <button
+              onClick={() => onGameSelect("unity3")}
+              disabled={isLoading}
+              className="bg-purple-900 text-white text-2xl font-bold w-64 h-16 rounded-lg tracking-widest hover:bg-purple-800 transition-colors"
+            >
+              P L A Y
+            </button>
           </div>
         </div>
       </div>
-      
-  
-    </>
+    </div>
   );
 };
 
