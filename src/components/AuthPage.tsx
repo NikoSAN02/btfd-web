@@ -14,7 +14,7 @@ const GameSelectionUI: React.FC<GameSelectionUIProps> = ({ isLoading, selectedGa
       {/* Header with logo */}
       <div className="p-4 bg-black flex items-center justify-center">
         <div className="flex items-center">
-          <Image src="/images/BtfdLogo.png" alt="BTFD.WTF" width={60} height={60} />
+          <Image src="/images/BtfdLogo.png" alt="BTFD.WTF" width={80} height={80} />
         </div>
       </div>
       
@@ -52,8 +52,8 @@ const GameSelectionUI: React.FC<GameSelectionUIProps> = ({ isLoading, selectedGa
               <Image 
                 src="/images/BtfdSurvival_Game_Image2.png" 
                 alt="Game Character" 
-                width={200}
-                height={200}
+                width={180}
+                height={180}
               />
             </div>
           </div>
@@ -69,7 +69,7 @@ const GameSelectionUI: React.FC<GameSelectionUIProps> = ({ isLoading, selectedGa
             <Image 
               src="/images/Play_Btn.png" 
               alt="PLAY" 
-              width={200}
+              width={180}
               height={55}
             />
           </button>
